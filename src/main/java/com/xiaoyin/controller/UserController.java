@@ -19,11 +19,10 @@ import java.util.List;
 public class UserController {
     @Autowired
     RegisterMapper registerMapper;
-    @ResponseBody
-    @RequestMapping(value = "user",method = RequestMethod.GET)
-    public List<Register> user(){
+    @RequestMapping(value = {"", "user"}, method = RequestMethod.GET)
+    public String user(Model model) {
         List<Register> registers = registerMapper.selectAll();
-
-        return registers;
+        model.addAttribute("registers", registers);
+        return "index";
     }
 }
