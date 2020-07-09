@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<span th:text="${user.usename}"></span>
+<tr th:each="register : ${registers}">
+    <td th:text="${register.getUserId()}"></td>
+    <td th:text="${register.getUsername()}"></td><br>
+</tr>
 </body>
 </html>
